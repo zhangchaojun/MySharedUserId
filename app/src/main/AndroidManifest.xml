@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.myshareduserid">
+    package="com.example.myshareduserid"
+    android:sharedUserId="com.example.cj"
+    android:sharedUserMaxSdkVersion="32">
 
     <application
         android:name="com.example.mytest.application.MyApplication"
@@ -12,8 +14,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
+
+        <provider
+            android:name="com.example.mytest.MyContentProvider"
+            android:authorities="com.example.myshareduserid.provider"
+            android:enabled="true"
+            android:exported="false"/>
+
         <activity android:name="com.example.mytest.MainActivity">
-			<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
